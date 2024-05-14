@@ -10,6 +10,8 @@ int main()
 
     personalBudget.registerUser();
     personalBudget.registerUser();
+    personalBudget.showAllUsers();
+
 
     return 0;
 }

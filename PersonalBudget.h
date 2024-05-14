@@ -16,5 +16,6 @@ public:
     };
 
     void registerUser();
+    void showAllUsers();
 };
 #endif // PERSONALBUDGET_
