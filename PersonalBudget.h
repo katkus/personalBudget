@@ -12,8 +12,8 @@ class PersonalBudget {
     UserManager userManager;
 
 public:
-    PersonalBudget() {
-    };
+    PersonalBudget(string fileNameWithUsers)
+        : userManager(fileNameWithUsers) {};
 
     void registerUser();
     void showAllUsers();
