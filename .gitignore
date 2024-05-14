@@ -1,3 +1,8 @@
 .git/
+bin/
+obj/
 personalBudget*
+users.xml
+incomes.xml
+expenses.xml
 
