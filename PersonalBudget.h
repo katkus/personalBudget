@@ -19,5 +19,6 @@ public:
     void showAllUsers();
     void loginUser();
     void logoutUser();
+    void changePassword();
 };
 #endif // PERSONALBUDGET_

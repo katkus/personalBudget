@@ -98,3 +98,16 @@ void UserManager::loginUser() {
 void UserManager::logoutUser() {
     loggedInUserId = 0;
 }
+void UserManager::changePassword() {
+    string newPassword = "";
+    cout << "Podaj nowe haslo: ";
+    newPassword = AuxiliaryMethods::loadLine();
+
+    for (int i = 0; i < (int) users.size(); i++) {
+        if (users[i].getId() == loggedInUserId) {
+            users[i].setPassword(newPassword);
+            //fileWithUsers.saveChangedPassword(users[i]);
+            system("read"); //Windows system("pause");
+        }
+    }
+}

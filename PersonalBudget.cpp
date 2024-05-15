@@ -12,3 +12,6 @@ void PersonalBudget::loginUser() {
 void PersonalBudget::logoutUser() {
     userManager.logoutUser();
 }
+void PersonalBudget::changePassword() {
+    userManager.changePassword();
+}
