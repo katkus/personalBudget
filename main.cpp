@@ -8,9 +8,10 @@ int main()
 {
     PersonalBudget personalBudget("users.xml");
 
-    personalBudget.registerUser();
-    personalBudget.registerUser();
-    personalBudget.showAllUsers();
+    //personalBudget.registerUser();
+    //personalBudget.showAllUsers();
+    personalBudget.loginUser();
+    personalBudget.logoutUser();
 
 
     return 0;
