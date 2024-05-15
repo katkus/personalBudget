@@ -18,5 +18,6 @@ public:
     void registerUser();
     void showAllUsers();
     void loginUser();
+    void logoutUser();
 };
 #endif // PERSONALBUDGET_

@@ -95,3 +95,6 @@ void UserManager::loginUser() {
     system("read"); // Windows system("pause");
     return ;
 }
+void UserManager::logoutUser() {
+    loggedInUserId = 0;
+}

@@ -11,6 +11,7 @@ int main()
     //personalBudget.registerUser();
     //personalBudget.showAllUsers();
     personalBudget.loginUser();
+    personalBudget.logoutUser();
 
 
     return 0;

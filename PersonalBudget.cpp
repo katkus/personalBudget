@@ -9,3 +9,6 @@ void PersonalBudget::showAllUsers() {
 void PersonalBudget::loginUser() {
     userManager.loginUser();
 }
+void PersonalBudget::logoutUser() {
+    userManager.logoutUser();
+}
