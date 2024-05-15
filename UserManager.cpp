@@ -106,7 +106,7 @@ void UserManager::changePassword() {
     for (int i = 0; i < (int) users.size(); i++) {
         if (users[i].getId() == loggedInUserId) {
             users[i].setPassword(newPassword);
-            //fileWithUsers.saveChangedPassword(users[i]);
+            fileWithUsers.saveChangedPassword(users[i]);
             system("read"); //Windows system("pause");
         }
     }

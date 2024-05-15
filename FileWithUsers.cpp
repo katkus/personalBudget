@@ -63,4 +63,26 @@ vector <User> FileWithUsers::loadUsersFromFile() {
 
     return users;
 }
+void FileWithUsers::saveChangedPassword(User &user) {
+    bool fileExists = xml.Load(getFileName());
 
+    if (fileExists) {
+        xml.ResetPos();
+        xml.FindElem();
+        xml.IntoElem();
+        while (xml.FindElem("User")) {
+            xml.FindChildElem("UserId");
+            int userId = atoi( MCD_2PCSZ(xml.GetChildData()));
+            if (userId == user.getId()) {
+                xml.FindChildElem("Password");
+                xml.SetChildData(user.getPassword());
+            }
+        }
+        if (xml.Save(getFileName())) {
+            cout << "Nowe haslo zostalo zapisane." << endl;
+        } else {
+            cout << "Nie udalo sie zapisac hasla." << endl;
+        }
+        xml.OutOfElem();
+    }
+}
