@@ -32,6 +32,7 @@ public:
     void showAllUsers();
     void loginUser();
     void logoutUser();
+    void changePassword();
 
 } ;
 #endif // USERMANAGER_H
