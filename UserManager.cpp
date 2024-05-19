@@ -111,3 +111,12 @@ void UserManager::changePassword() {
         }
     }
 }
+bool UserManager::isUserLoggedIn() {
+    if (loggedInUserId > 0)
+        return true;
+    else
+        return false;
+}
+int UserManager::getLoggedInUserId() {
+    return loggedInUserId;
+}
