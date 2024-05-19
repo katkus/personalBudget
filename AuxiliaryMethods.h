@@ -17,6 +17,7 @@ public:
     static string changeDateWithHypenToDateWithoutHyphen(string date);
     static string replaceCommaToDot (string amount);
     static string convertIntToString(int number);
+    static string changeDateWithoutHypenToDateWithHyphen(string date);
 
 };
 #endif // AUXILIARYMETHODS_H

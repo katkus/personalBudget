@@ -30,8 +30,8 @@ class BudgetManager {
 public:
     BudgetManager (string fileNameWithIncomes, string fileNameWithExpenses, int loggedInUserId)
         : LOGGED_IN_USER_ID(loggedInUserId), incomeFile(fileNameWithIncomes), expenseFile(fileNameWithExpenses) {
-        //incomes = incomeFile.loadEarningOfLoggedInUserFromFile(LOGGED_IN_USER_ID);
-        //expenses = expenseFile.loadEarningOfLoggedInUserFromFile(LOGGED_IN_USER_ID);
+        incomes = incomeFile.loadEarningOfLoggedInUserFromFile(LOGGED_IN_USER_ID);
+        expenses = expenseFile.loadEarningOfLoggedInUserFromFile(LOGGED_IN_USER_ID);
     };
 
     void addIncome();

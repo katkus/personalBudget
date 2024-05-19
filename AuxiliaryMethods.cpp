@@ -58,3 +58,11 @@ string AuxiliaryMethods::convertIntToString(int number) {
 
     return str;
 }
+string AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(string date) {
+
+    string dateWithHyphen = (date.substr(0,4)) + (date.substr(4,2)) + (date.substr(6,2));
+    dateWithHyphen.insert(4, "-");
+    dateWithHyphen.insert(7, "-");
+
+    return dateWithHyphen;
+}

@@ -8,10 +8,11 @@ void BudgetManager::addIncome() {
     income = addEarningDetails(INCOME);
     incomes.push_back(income);
 
-    /*if(incomeFile.addEarningToFile(income, INCOME) == true) {
+    if(incomeFile.addEarningToFile(income, INCOME) == true) {
         cout << "Nowy przychod zostal dodany do pliku." << endl;
     } else
-        cout << "Blad. Nie udalo sie dodac nowego przychodu do pliku." << endl;*/
+        cout << "Blad. Nie udalo sie dodac nowego przychodu do pliku." << endl;
+
     system("read"); // Windows system("pause")
 }
 
@@ -23,10 +24,10 @@ void BudgetManager::addExpense() {
     expense = addEarningDetails(EXPENSE);
     expenses.push_back(expense);
 
-  /*  if(expenseFile.addEarningToFile(expense, EXPENSE) == true) {
+    if(expenseFile.addEarningToFile(expense, EXPENSE) == true) {
         cout << "Nowy wydatek zostal dodany do pliku." << endl;
     } else
-        cout << "Blad. Nie udalo sie dodac nowego wydatku do pliku." << endl;*/
+        cout << "Blad. Nie udalo sie dodac nowego wydatku do pliku." << endl;
     system("read"); // Windows system("pause")
 }
 
@@ -38,11 +39,11 @@ Earning BudgetManager::addEarningDetails(const Type &type) {
     switch(type) {
 
     case INCOME:
-        //earning.setEarningId((incomeFile.getLastId()+1));
+        earning.setEarningId((incomeFile.getLastId()+1));
         typeDescription = "przychod";
         break;
     case EXPENSE:
-        //earning.setEarningId((expenseFile.getLastId()+1));
+        earning.setEarningId((expenseFile.getLastId()+1));
         typeDescription = "wydatek";
         break;
     }
