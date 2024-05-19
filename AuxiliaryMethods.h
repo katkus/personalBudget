@@ -12,5 +12,11 @@ using namespace std;
 class AuxiliaryMethods {
 public:
     static string loadLine();
+    static char loadCharacter();
+    static int convertStringToInt(string number);
+    static string changeDateWithHypenToDateWithoutHyphen(string date);
+    static string replaceCommaToDot (string amount);
+    static string convertIntToString(int number);
+
 };
 #endif // AUXILIARYMETHODS_H

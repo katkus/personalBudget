@@ -18,6 +18,6 @@ using namespace std;
 
 class FileWithEarning : public XMLFile {
 public:
-
+    FileWithEarning(string fileName) : XMLFile(fileName) { };
 };
 #endif // FILEWITHEARNING_H

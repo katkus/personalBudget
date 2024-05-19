@@ -1,18 +1,19 @@
 #include <iostream>
 
-#include "PersonalBudget.h"
+#include "BudgetManager.h"
 
 using namespace std;
 
 int main()
 {
-    PersonalBudget personalBudget("users.xml");
+    BudgetManager budgetManager("incomes.xml", "expenses.xml", 1);
 
     //personalBudget.registerUser();
-    personalBudget.showAllUsers();
-    personalBudget.loginUser();
-    personalBudget.changePassword();
-    personalBudget.logoutUser();
+    budgetManager.addIncome();
+    budgetManager.addExpense();
+    //personalBudget.loginUser();
+    //personalBudget.changePassword();
+    //personalBudget.logoutUser();
 
 
     return 0;

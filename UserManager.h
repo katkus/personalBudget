@@ -8,6 +8,8 @@
 #include <sstream>
 
 #include "User.h"
+#include "BudgetManager.h"
+#include "Earning.h"
 #include "FileWithUsers.h"
 #include "XMLFile.h"
 #include "AuxiliaryMethods.h"
@@ -33,6 +35,8 @@ public:
     void loginUser();
     void logoutUser();
     void changePassword();
+    bool isUserLoggedIn();
+    int getLoggedInUserId();
 
 } ;
 #endif // USERMANAGER_H
