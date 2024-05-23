@@ -9,6 +9,7 @@ string DateMethods::getTimeFromSystem() {
     string date = bufor;
     return date;
 }
+
 string DateMethods::getPreviousMonthFromDate(string currentDate) {
     string currentMonth, previousMonth;
     int currentMonthInt;
