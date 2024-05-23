@@ -66,3 +66,9 @@ string AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(string date) {
 
     return dateWithHyphen;
 }
+
+double AuxiliaryMethods::convertStringToDouble(string amount) {
+    double amountDouble = atof(amount.c_str());
+
+    return amountDouble;
+}

@@ -27,6 +27,8 @@ class BudgetManager {
     char selectOptionFromDateMenu();
     void sortDateIncomes();
     void sortDateExpenses();
+    string displayEarning(int number, const Type &type);
+    double calculateBalanceSheet(int startDate, int endDate, const Type& type);
     void displayCalculateBalanceSheet(int startDate, int endDate);
 
 
