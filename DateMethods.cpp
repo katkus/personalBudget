@@ -112,3 +112,16 @@ bool DateMethods::checkFormatDateIsCorrect(string date) {
     }
     return false;
 }
+
+void DateMethods::displayDate (string displayedDate) {
+
+    for (int i = 8; i <= 9; i++) {
+        cout << displayedDate[i];
+    }
+    for (int i = 4; i <= 7; i++) {
+        cout << displayedDate[i];
+    }
+    for (int i = 0; i <= 3; i++) {
+        cout << displayedDate[i];
+    }
+}

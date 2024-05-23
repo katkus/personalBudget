@@ -9,8 +9,9 @@ int main()
     BudgetManager budgetManager("incomes.xml", "expenses.xml", 1);
 
     //personalBudget.registerUser();
-    budgetManager.addIncome();
-    budgetManager.addExpense();
+    //budgetManager.addIncome();
+    //budgetManager.addExpense();
+    budgetManager.displayCurrentMonthsBalanceSheet();
     //personalBudget.loginUser();
     //personalBudget.changePassword();
     //personalBudget.logoutUser();

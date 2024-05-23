@@ -25,6 +25,9 @@ class BudgetManager {
 
     Earning addEarningDetails(const Type &type);
     char selectOptionFromDateMenu();
+    void sortDateIncomes();
+    void sortDateExpenses();
+    void displayCalculateBalanceSheet(int startDate, int endDate);
 
 
 public:
@@ -36,5 +39,6 @@ public:
 
     void addIncome();
     void addExpense();
+    void displayCurrentMonthsBalanceSheet();
 } ;
 #endif // BUDGETMANAGER_H

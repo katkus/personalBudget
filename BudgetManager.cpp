@@ -97,3 +97,44 @@ char BudgetManager::selectOptionFromDateMenu() {
 
     return choice;
 }
+void BudgetManager::sortDateIncomes() {
+
+    sort(incomes.begin(), incomes.end(), [](const Earning& lhs, const Earning& rhs) {
+        return lhs.date < rhs.date;
+    });
+}
+
+void BudgetManager::sortDateExpenses() {
+
+    sort(expenses.begin(), expenses.end(), [](const Earning& lhs, const Earning& rhs) {
+        return lhs.date < rhs.date;
+    });
+}
+void BudgetManager::displayCalculateBalanceSheet(int startDate, int endDate) {
+    //sortDateIncomes();
+    //sortDateExpenses();
+
+    system("clear");//Windows system("cls")
+    cout << "POKAZ SALDO" << endl;
+    cout << "WYBRANY PRZEDZIAL CZASOWY: " ;
+    dateMethods.displayDate(AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(AuxiliaryMethods::convertIntToString(startDate)));
+    cout << " DO " ;
+    dateMethods.displayDate(AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(AuxiliaryMethods::convertIntToString(endDate)));
+    cout << endl << endl;
+    double incomesSum; //= calculateBalanceSheet(startDate, endDate, INCOME);
+    double expensesSum; //= calculateBalanceSheet(startDate, endDate, EXPENSE);
+
+    cout << "-------------------------------------------------------------------" << endl;
+    cout << "Suma przychodow w wybranym przedziale czasowym: " << incomesSum << " PLN." << endl;
+    cout << "Suma wydatkow w wybranym przedziale czasowym: " << expensesSum << " PLN." <<endl;
+    cout << "Saldo w wybranym przedziale czasowym: " << incomesSum - expensesSum << " PLN." << endl;
+
+}
+void BudgetManager::displayCurrentMonthsBalanceSheet() {
+    string currentDate = dateMethods.getTimeFromSystem();
+    string startDate =  (currentDate.substr(0,4) + currentDate.substr(5,2) + "01");
+    string endDate = (currentDate.substr(0,4) + currentDate.substr(5,2) + AuxiliaryMethods::convertIntToString(dateMethods.checkNumberOfDaysPerMonth(dateMethods.getYearFromDate(currentDate),dateMethods.getMonthFromDate(currentDate))));
+    displayCalculateBalanceSheet(AuxiliaryMethods::convertStringToInt(startDate), AuxiliaryMethods::convertStringToInt(endDate));
+
+    system("read"); // Windows system("pause")
+}
