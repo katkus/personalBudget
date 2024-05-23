@@ -216,3 +216,22 @@ void BudgetManager::displayCurrentMonthsBalanceSheet() {
 
     system("read"); // Windows system("pause")
 }
+
+void BudgetManager::displayPreviousMonthsBalanceSheet() {
+    string currentDate = dateMethods.getTimeFromSystem();
+    string previousMonth = dateMethods.getPreviousMonthFromDate(currentDate);
+
+    if (previousMonth=="12") {
+        if (currentDate[3]=='0') {
+            currentDate[2]--;
+            currentDate[3]='9';
+        } else
+            currentDate[3]--;
+    }
+    string startDate = (currentDate.substr(0,4) + previousMonth + "01");
+    string endDate = (currentDate.substr(0,4) + previousMonth + AuxiliaryMethods::convertIntToString(dateMethods.checkNumberOfDaysPerMonth(dateMethods.getYearFromDate(currentDate),AuxiliaryMethods::convertStringToInt(previousMonth))));
+
+    displayCalculateBalanceSheet(AuxiliaryMethods::convertStringToInt(startDate), AuxiliaryMethods::convertStringToInt(endDate));
+
+    system("read"); // Windows system("pause")
+}
