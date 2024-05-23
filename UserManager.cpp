@@ -54,7 +54,7 @@ bool UserManager::loginExists(string login) {
 }
 void UserManager::showAllUsers() {
 
-    for (int i = 0; i < users.size(); i++) {
+    for (int i = 0; i < (int) users.size(); i++) {
         cout << users[i].getFirstName() << endl;
         cout << users[i].getLastName() << endl;
         cout << users[i].getId() << endl;

@@ -23,6 +23,7 @@ public:
     int getMonthFromDate(string date);
     int getDayFromDate(string date);
     bool checkFormatDateIsCorrect(string date);
+    void displayDate(string displayedDate);
 
 };
 #endif // DATEMETHODS_H

@@ -97,3 +97,122 @@ char BudgetManager::selectOptionFromDateMenu() {
 
     return choice;
 }
+
+void BudgetManager::sortDateIncomes() {
+
+    sort(incomes.begin(), incomes.end(), [](const Earning& lhs, const Earning& rhs) {
+        return lhs.date < rhs.date;
+    });
+}
+
+void BudgetManager::sortDateExpenses() {
+
+    sort(expenses.begin(), expenses.end(), [](const Earning& lhs, const Earning& rhs) {
+        return lhs.date < rhs.date;
+    });
+}
+
+string BudgetManager::displayEarning(int number, const Type &type) {
+    string amount;
+    switch(type) {
+
+    case INCOME:
+        cout << "-------------------------------------------------------------" << endl;
+        cout << "Numer ID: " << incomes[number].getEarningId() << endl;
+        cout << "Data: ";
+        dateMethods.displayDate(AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(AuxiliaryMethods::convertIntToString(incomes[number].getDate())));
+        cout << endl << "Opis: " << incomes[number].getItem() << endl;
+        cout << "Wartosc [PLN]: " << incomes[number].getAmount() << endl;
+        amount = incomes[number].getAmount();
+        break;
+
+    case EXPENSE:
+        cout << "-------------------------------------------------------------" << endl;
+        cout << "Numer ID: " << expenses[number].getEarningId() << endl;
+        cout << "Data: ";
+        dateMethods.displayDate(AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(AuxiliaryMethods::convertIntToString(expenses[number].getDate())));
+        cout << endl << "Opis: " << expenses[number].getItem() << endl;
+        cout << "Wartosc [PLN]: " << expenses[number].getAmount() << endl;
+        amount = expenses[number].getAmount();
+        break;
+
+    }
+    return amount;
+}
+
+double BudgetManager::calculateBalanceSheet(int startDate, int endDate, const Type& type) {
+    string typeDescription;
+    double sumEarnings = 0;
+
+    switch(type) {
+
+    case INCOME:
+        typeDescription = "PRZYCHODY";
+
+        if(!incomes.empty()) {
+            cout << "         <<<" << typeDescription << ">>>         " << endl;
+
+            for (int i =0; i < (int) incomes.size(); i++) {
+                if (startDate<= incomes[i].getDate()) {
+                    if(endDate >= incomes[i].getDate())
+                        sumEarnings += (AuxiliaryMethods::convertStringToDouble(displayEarning(i,INCOME)));
+                }
+            }
+            cout << endl;
+        } else {
+            cout << endl << typeDescription << " NIE ISTNIEJA." << endl;
+        }
+        break;
+
+    case EXPENSE:
+        typeDescription = "WYDATKI";
+
+        if(!expenses.empty()) {
+            cout << "         <<<" << typeDescription << ">>>         " << endl;
+
+            for (int i =0; i < (int) expenses.size(); i++) {
+
+                if (startDate <= expenses[i].getDate()) {
+                    if(endDate >= expenses[i].getDate()) {
+                        sumEarnings+= (AuxiliaryMethods::convertStringToDouble(displayEarning(i, EXPENSE)));
+                    }
+                }
+            }
+            cout << endl;
+        } else {
+            cout << endl << typeDescription << " NIE ISTNIEJA." << endl;
+        }
+        break;
+    }
+
+    return sumEarnings;
+}
+
+void BudgetManager::displayCalculateBalanceSheet(int startDate, int endDate) {
+    sortDateIncomes();
+    sortDateExpenses();
+
+    system("clear");//Windows system("cls")
+    cout << "POKAZ SALDO" << endl;
+    cout << "WYBRANY PRZEDZIAL CZASOWY: " ;
+    dateMethods.displayDate(AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(AuxiliaryMethods::convertIntToString(startDate)));
+    cout << " DO " ;
+    dateMethods.displayDate(AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(AuxiliaryMethods::convertIntToString(endDate)));
+    cout << endl << endl;
+    double incomesSum = calculateBalanceSheet(startDate, endDate, INCOME);
+    double expensesSum = calculateBalanceSheet(startDate, endDate, EXPENSE);
+
+    cout << "-------------------------------------------------------------------" << endl;
+    cout << "Suma przychodow w wybranym przedziale czasowym: " << incomesSum << " PLN." << endl;
+    cout << "Suma wydatkow w wybranym przedziale czasowym: " << expensesSum << " PLN." <<endl;
+    cout << "Saldo w wybranym przedziale czasowym: " << incomesSum - expensesSum << " PLN." << endl;
+
+}
+void BudgetManager::displayCurrentMonthsBalanceSheet() {
+    string currentDate = dateMethods.getTimeFromSystem();
+    string startDate =  (currentDate.substr(0,4) + currentDate.substr(5,2) + "01");
+    string endDate = (currentDate.substr(0,4) + currentDate.substr(5,2) + AuxiliaryMethods::convertIntToString(dateMethods.checkNumberOfDaysPerMonth(dateMethods.getYearFromDate(currentDate),dateMethods.getMonthFromDate(currentDate))));
+    displayCalculateBalanceSheet(AuxiliaryMethods::convertStringToInt(startDate), AuxiliaryMethods::convertStringToInt(endDate));
+
+    system("read"); // Windows system("pause")
+}
