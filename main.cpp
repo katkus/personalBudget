@@ -11,8 +11,8 @@ int main()
     //personalBudget.registerUser();
     //budgetManager.addIncome();
     //budgetManager.addExpense();
-    budgetManager.displayCurrentMonthsBalanceSheet();
-    //personalBudget.loginUser();
+    budgetManager.displayPreviousMonthsBalanceSheet();
+    budgetManager.displayBalanceSheetFromSelectedTimePeriod();//personalBudget.loginUser();
     //personalBudget.changePassword();
     //personalBudget.logoutUser();
 

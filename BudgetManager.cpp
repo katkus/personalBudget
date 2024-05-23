@@ -235,3 +235,25 @@ void BudgetManager::displayPreviousMonthsBalanceSheet() {
 
     system("read"); // Windows system("pause")
 }
+void BudgetManager::displayBalanceSheetFromSelectedTimePeriod() {
+    string enteredStartDate, enteredEndDate;
+
+    do {
+        cout << "Wprowadz date w formacie rrrr-mm-dd od ktorej chcesz rozpoczac bilans. Data musi miescic sie w zakresie czasowym od 2000-01-01 do maksymalnie ostatniego dnia biezacego miesiaca. " << endl;
+        enteredStartDate = AuxiliaryMethods::loadLine();
+        if (dateMethods.checkFormatDateIsCorrect(enteredStartDate) == false)
+            cout << "Niepoprawny format daty lub niepoprawnie podany zakres czasowy." << endl;
+
+    } while(dateMethods.checkFormatDateIsCorrect(enteredStartDate) == false);
+
+    do {
+        cout << "Wprowadz date w formacie rrrr-mm-dd do ktorej chcesz zakonczyc bilans. Data musi miescic sie w zakresie czasowym od 2000-01-01 do maksymalnie ostatniego dnia biezacego miesiaca. " << endl;
+        enteredEndDate = AuxiliaryMethods::loadLine();
+        if (dateMethods.checkFormatDateIsCorrect(enteredEndDate) == false)
+            cout << "Niepoprawny format daty lub niepoprawnie podany zakres czasowy." << endl;
+
+    } while(dateMethods.checkFormatDateIsCorrect(enteredEndDate) == false);
+
+    displayCalculateBalanceSheet(AuxiliaryMethods::convertStringToInt(AuxiliaryMethods::changeDateWithHypenToDateWithoutHyphen(enteredStartDate)), AuxiliaryMethods::convertStringToInt(AuxiliaryMethods::changeDateWithHypenToDateWithoutHyphen(enteredEndDate)));
+    system("read"); // Windows system("pause")
+}
