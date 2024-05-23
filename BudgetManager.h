@@ -43,5 +43,6 @@ public:
     void addExpense();
     void displayCurrentMonthsBalanceSheet();
     void displayPreviousMonthsBalanceSheet();
+    void displayBalanceSheetFromSelectedTimePeriod();
 } ;
 #endif // BUDGETMANAGER_H
