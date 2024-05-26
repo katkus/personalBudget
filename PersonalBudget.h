@@ -26,11 +26,12 @@ public:
     };
 
     void registerUser();
-    void showAllUsers();
     void loginUser();
     void logoutUser();
     void changePassword();
     void addIncome();
     void addExpense();
+    char selectOptionFromMainMenu();
+    char selectOptionFromBudgetMenu();
 };
 #endif // PERSONALBUDGET_

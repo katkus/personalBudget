@@ -52,16 +52,7 @@ bool UserManager::loginExists(string login) {
     }
     return false;
 }
-void UserManager::showAllUsers() {
 
-    for (int i = 0; i < (int) users.size(); i++) {
-        cout << users[i].getFirstName() << endl;
-        cout << users[i].getLastName() << endl;
-        cout << users[i].getId() << endl;
-        cout << users[i].getLogin() << endl;
-        cout << users[i].getPassword() << endl;
-    }
-}
 void UserManager::loginUser() {
     User user;
     string login = "", password = "";
