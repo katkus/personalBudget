@@ -31,6 +31,10 @@ public:
     void changePassword();
     void addIncome();
     void addExpense();
+    void displayCurrentMonthsBalanceSheet();
+    void displayPreviousMonthsBalanceSheet();
+    void displayBalanceSheetFromSelectedTimePeriod();
+    bool isUserLoggedIn();
     char selectOptionFromMainMenu();
     char selectOptionFromBudgetMenu();
 };

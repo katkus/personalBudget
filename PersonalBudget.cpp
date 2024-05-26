@@ -39,6 +39,20 @@ void PersonalBudget::addExpense() {
     }
 }
 
+void PersonalBudget::displayCurrentMonthsBalanceSheet() {
+    budgetManager->displayCurrentMonthsBalanceSheet();
+}
+void PersonalBudget::displayPreviousMonthsBalanceSheet() {
+    budgetManager->displayPreviousMonthsBalanceSheet();
+}
+void PersonalBudget::displayBalanceSheetFromSelectedTimePeriod() {
+    budgetManager->displayBalanceSheetFromSelectedTimePeriod();
+}
+
+bool PersonalBudget::isUserLoggedIn() {
+    return userManager.isUserLoggedIn();
+}
+
 char PersonalBudget::selectOptionFromMainMenu() {
     char choice;
 
