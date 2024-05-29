@@ -1,16 +1,19 @@
 #include "DateMethods.h"
 
 string DateMethods::getTimeFromSystem() {
+
     char bufor [ 64 ];
     time_t timeTakenFromComputer;
     time( & timeTakenFromComputer );
     tm timeTakenFromComputerTM = * localtime( & timeTakenFromComputer );
     strftime( bufor, sizeof( bufor ), "%Y-%m-%d", & timeTakenFromComputerTM );
     string date = bufor;
+
     return date;
 }
 
 string DateMethods::getPreviousMonthFromDate(string currentDate) {
+
     string currentMonth, previousMonth;
     int currentMonthInt;
 
@@ -32,6 +35,7 @@ string DateMethods::getPreviousMonthFromDate(string currentDate) {
 
     return previousMonth;
 }
+
 int DateMethods::checkNumberOfDaysPerMonth(int currentYear, int currentMonth) {
 
     int lastDayOfCurrentDay;
@@ -77,12 +81,14 @@ int DateMethods::getMonthFromDate(string date) {
 
     return month;
 }
+
 int DateMethods::getDayFromDate(string date) {
 
     int day = AuxiliaryMethods::convertStringToInt((date.substr(8,2)));
 
     return day;
 }
+
 bool DateMethods::checkFormatDateIsCorrect(string date) {
 
     if ((date[4]=='-') && (date[7]=='-') && date.size()==10) {
@@ -108,7 +114,6 @@ bool DateMethods::checkFormatDateIsCorrect(string date) {
                     return true;
                 }
             }
-
         }
     }
     return false;

@@ -9,6 +9,7 @@
 using namespace std;
 
 class XMLFile {
+
 private:
     const string FILE_NAME;
 
@@ -20,11 +21,12 @@ protected:
     static bool isFileEmpty(fstream &XMLFile);
 
     XMLFile(string fileName): FILE_NAME (fileName) {
-    lastId=0;
+        lastId=0;
     };
 
 public:
     int getLastId();
+
 };
 #endif // XMLFILE_H
 

@@ -16,6 +16,7 @@
 using namespace std;
 
 class BudgetManager {
+
     const int LOGGED_IN_USER_ID;
     vector <Earning> incomes;
     vector <Earning> expenses;
@@ -44,5 +45,6 @@ public:
     void displayCurrentMonthsBalanceSheet();
     void displayPreviousMonthsBalanceSheet();
     void displayBalanceSheetFromSelectedTimePeriod();
+
 } ;
 #endif // BUDGETMANAGER_H

@@ -1,6 +1,7 @@
 #include "FileWithUsers.h"
 
 void FileWithUsers::addUserToFile(User &user) {
+
     bool fileExists = xml.Load(getFileName());
 
     if (!fileExists) {
@@ -26,7 +27,9 @@ void FileWithUsers::addUserToFile(User &user) {
         cout << "Nie udalo sie zapisac danych." << endl;
     }
 }
+
 vector <User> FileWithUsers::loadUsersFromFile() {
+
     User user;
     vector <User> users;
 
@@ -57,13 +60,14 @@ vector <User> FileWithUsers::loadUsersFromFile() {
             users.push_back(user);
         }
         xml.OutOfElem();
-
     } else
         cout << "Nie mozna otworzyc pliku." << endl;
 
     return users;
 }
+
 void FileWithUsers::saveChangedPassword(User &user) {
+
     bool fileExists = xml.Load(getFileName());
 
     if (fileExists) {

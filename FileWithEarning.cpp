@@ -1,6 +1,7 @@
 #include "FileWithEarning.h"
 
 bool FileWithEarning::addEarningToFile(Earning &earning, const Type &type) {
+
     int earningid = earning.getEarningId();
     string earningID = AuxiliaryMethods::convertIntToString(earningid);
 
@@ -40,6 +41,7 @@ bool FileWithEarning::addEarningToFile(Earning &earning, const Type &type) {
 }
 
 vector <Earning> FileWithEarning::loadEarningOfLoggedInUserFromFile(int loggedInUserId) {
+
     Earning earning;
     vector <Earning> earnings;
 
@@ -77,4 +79,5 @@ vector <Earning> FileWithEarning::loadEarningOfLoggedInUserFromFile(int loggedIn
     } else
         cout << "Nie mozna otworzyc pliku." << endl;
     return earnings;
+
 }

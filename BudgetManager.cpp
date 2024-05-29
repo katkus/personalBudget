@@ -1,6 +1,7 @@
 #include "BudgetManager.h"
 
 void BudgetManager::addIncome() {
+
     Earning income;
 
     system("clear");//Windows system("cls")
@@ -17,6 +18,7 @@ void BudgetManager::addIncome() {
 }
 
 void BudgetManager::addExpense() {
+
     Earning expense;
 
     system("clear");//Windows system("cls")
@@ -32,6 +34,7 @@ void BudgetManager::addExpense() {
 }
 
 Earning BudgetManager::addEarningDetails(const Type &type) {
+
     Earning earning;
     string typeDescription, date;
     char choice;
@@ -83,9 +86,11 @@ Earning BudgetManager::addEarningDetails(const Type &type) {
     earning.setAmount(AuxiliaryMethods::replaceCommaToDot(AuxiliaryMethods::loadLine()));
 
     return earning;
+
 }
 
 char BudgetManager::selectOptionFromDateMenu() {
+
     char choice;
 
     cout << "Dotyczy dnia dzisiejszego czy chcesz dodac z inna data? " << endl;
@@ -96,6 +101,7 @@ char BudgetManager::selectOptionFromDateMenu() {
     choice = AuxiliaryMethods::loadCharacter();
 
     return choice;
+
 }
 
 void BudgetManager::sortDateIncomes() {
@@ -113,6 +119,7 @@ void BudgetManager::sortDateExpenses() {
 }
 
 string BudgetManager::displayEarning(int number, const Type &type) {
+
     string amount;
     switch(type) {
 
@@ -138,9 +145,11 @@ string BudgetManager::displayEarning(int number, const Type &type) {
 
     }
     return amount;
+
 }
 
 double BudgetManager::calculateBalanceSheet(int startDate, int endDate, const Type& type) {
+
     string typeDescription;
     double sumEarnings = 0;
 
@@ -189,6 +198,7 @@ double BudgetManager::calculateBalanceSheet(int startDate, int endDate, const Ty
 }
 
 void BudgetManager::displayCalculateBalanceSheet(int startDate, int endDate) {
+
     sortDateIncomes();
     sortDateExpenses();
 
@@ -208,16 +218,20 @@ void BudgetManager::displayCalculateBalanceSheet(int startDate, int endDate) {
     cout << "Saldo w wybranym przedziale czasowym: " << incomesSum - expensesSum << " PLN." << endl;
 
 }
+
 void BudgetManager::displayCurrentMonthsBalanceSheet() {
+
     string currentDate = dateMethods.getTimeFromSystem();
     string startDate =  (currentDate.substr(0,4) + currentDate.substr(5,2) + "01");
     string endDate = (currentDate.substr(0,4) + currentDate.substr(5,2) + AuxiliaryMethods::convertIntToString(dateMethods.checkNumberOfDaysPerMonth(dateMethods.getYearFromDate(currentDate),dateMethods.getMonthFromDate(currentDate))));
     displayCalculateBalanceSheet(AuxiliaryMethods::convertStringToInt(startDate), AuxiliaryMethods::convertStringToInt(endDate));
 
     system("read"); // Windows system("pause")
+
 }
 
 void BudgetManager::displayPreviousMonthsBalanceSheet() {
+
     string currentDate = dateMethods.getTimeFromSystem();
     string previousMonth = dateMethods.getPreviousMonthFromDate(currentDate);
 
@@ -235,7 +249,9 @@ void BudgetManager::displayPreviousMonthsBalanceSheet() {
 
     system("read"); // Windows system("pause")
 }
+
 void BudgetManager::displayBalanceSheetFromSelectedTimePeriod() {
+
     string enteredStartDate, enteredEndDate;
 
     do {
@@ -256,4 +272,5 @@ void BudgetManager::displayBalanceSheetFromSelectedTimePeriod() {
 
     displayCalculateBalanceSheet(AuxiliaryMethods::convertStringToInt(AuxiliaryMethods::changeDateWithHypenToDateWithoutHyphen(enteredStartDate)), AuxiliaryMethods::convertStringToInt(AuxiliaryMethods::changeDateWithHypenToDateWithoutHyphen(enteredEndDate)));
     system("read"); // Windows system("pause")
+
 }

@@ -17,9 +17,11 @@
 using namespace std;
 
 class FileWithEarning : public XMLFile {
+
 public:
     FileWithEarning(string fileName) : XMLFile(fileName) { };
     bool addEarningToFile(Earning &earning, const Type &type);
     vector <Earning> loadEarningOfLoggedInUserFromFile(int loggedInUserId);
+
 };
 #endif // FILEWITHEARNING_H

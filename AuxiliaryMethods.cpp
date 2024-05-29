@@ -7,7 +7,9 @@ string AuxiliaryMethods::loadLine() {
 
     return entry;
 }
+
 char AuxiliaryMethods::loadCharacter() {
+
     string entrance = "";
     char character  = {0};
 
@@ -22,13 +24,17 @@ char AuxiliaryMethods::loadCharacter() {
     }
 
     return character;
+
 }
+
 int AuxiliaryMethods::convertStringToInt(string number) {
+
     int numberInt;
     istringstream iss(number);
     iss >> numberInt;
 
     return numberInt;
+
 }
 string AuxiliaryMethods::changeDateWithHypenToDateWithoutHyphen(string date) {
 
@@ -36,7 +42,9 @@ string AuxiliaryMethods::changeDateWithHypenToDateWithoutHyphen(string date) {
 
     return dateWithoutHyphen;
 }
+
 string AuxiliaryMethods::replaceCommaToDot (string amount) {
+
     int sizeOfAmount = amount.size();
 
     for (int i = 0; i < sizeOfAmount; i++) {
@@ -50,8 +58,10 @@ string AuxiliaryMethods::replaceCommaToDot (string amount) {
     }
 
     return amount;
+
 }
 string AuxiliaryMethods::convertIntToString(int number) {
+
     ostringstream ss;
     ss << number;
     string str = ss.str();
@@ -68,6 +78,7 @@ string AuxiliaryMethods::changeDateWithoutHypenToDateWithHyphen(string date) {
 }
 
 double AuxiliaryMethods::convertStringToDouble(string amount) {
+
     double amountDouble = atof(amount.c_str());
 
     return amountDouble;

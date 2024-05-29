@@ -1,14 +1,18 @@
 #include "UserManager.h"
 
 void UserManager::registerUser() {
+
     User user = getNewUserData();
+
     users.push_back(user);
     fileWithUsers.addUserToFile(user);
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("read"); // Windows system("pause");
+
 }
 
 User UserManager::getNewUserData() {
+
     User user;
 
     user.setId(getNewUserId());
@@ -18,11 +22,13 @@ User UserManager::getNewUserData() {
     user.setFirstName(firstName);
 
     string lastName;
+
     cout << "Podaj nazwisko: ";
     lastName = AuxiliaryMethods::loadLine();
     user.setLastName(lastName);
 
     string login;
+
     do {
         cout << "Podaj login: ";
         login = AuxiliaryMethods::loadLine();
@@ -30,6 +36,7 @@ User UserManager::getNewUserData() {
     } while (loginExists(user.getLogin()) == true);
 
     string password;
+
     cout << "Podaj haslo: ";
     password = AuxiliaryMethods::loadLine();
 
@@ -37,13 +44,18 @@ User UserManager::getNewUserData() {
 
     return user;
 }
+
 int UserManager::getNewUserId() {
+
     if (users.empty() == true)
         return 1;
     else
         return users.back().getId()+ 1;
+
 }
+
 bool UserManager::loginExists(string login) {
+
     for (int i = 0; i < (int) users.size(); i++) {
         if (users[i].getLogin() == login) {
             cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
@@ -51,9 +63,11 @@ bool UserManager::loginExists(string login) {
         }
     }
     return false;
+
 }
 
 void UserManager::loginUser() {
+
     User user;
     string login = "", password = "";
 
@@ -85,11 +99,16 @@ void UserManager::loginUser() {
 
     system("read"); // Windows system("pause");
     return ;
+
 }
+
 void UserManager::logoutUser() {
+
     loggedInUserId = 0;
 }
+
 void UserManager::changePassword() {
+
     string newPassword = "";
     cout << "Podaj nowe haslo: ";
     newPassword = AuxiliaryMethods::loadLine();
@@ -102,12 +121,16 @@ void UserManager::changePassword() {
         }
     }
 }
+
 bool UserManager::isUserLoggedIn() {
+
     if (loggedInUserId > 0)
         return true;
     else
         return false;
 }
+
 int UserManager::getLoggedInUserId() {
+
     return loggedInUserId;
 }

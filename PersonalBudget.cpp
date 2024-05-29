@@ -1,27 +1,32 @@
 #include "PersonalBudget.h"
 
 void PersonalBudget::registerUser() {
+
     userManager.registerUser();
 }
 
 void PersonalBudget::loginUser() {
+
     userManager.loginUser();
-        if (userManager.isUserLoggedIn()) {
+    if (userManager.isUserLoggedIn()) {
         budgetManager= new BudgetManager (FILE_NAME_WITH_INCOMES, FILE_NAME_WITH_EXPENSES, userManager.getLoggedInUserId());
     }
 }
 
 void PersonalBudget::logoutUser() {
+
     userManager.logoutUser();
     delete budgetManager;
     budgetManager = NULL;
 }
 
 void PersonalBudget::changePassword() {
+
     userManager.changePassword();
 }
 
 void PersonalBudget::addIncome() {
+
     if(userManager.isUserLoggedIn()) {
         budgetManager->addIncome();
     } else {
@@ -31,6 +36,7 @@ void PersonalBudget::addIncome() {
 }
 
 void PersonalBudget::addExpense() {
+
     if(userManager.isUserLoggedIn()) {
         budgetManager->addExpense();
     } else {
@@ -40,20 +46,27 @@ void PersonalBudget::addExpense() {
 }
 
 void PersonalBudget::displayCurrentMonthsBalanceSheet() {
+
     budgetManager->displayCurrentMonthsBalanceSheet();
 }
+
 void PersonalBudget::displayPreviousMonthsBalanceSheet() {
+
     budgetManager->displayPreviousMonthsBalanceSheet();
 }
+
 void PersonalBudget::displayBalanceSheetFromSelectedTimePeriod() {
+
     budgetManager->displayBalanceSheetFromSelectedTimePeriod();
 }
 
 bool PersonalBudget::isUserLoggedIn() {
+
     return userManager.isUserLoggedIn();
 }
 
 char PersonalBudget::selectOptionFromMainMenu() {
+
     char choice;
 
     system("clear");//Windows system("cls")
@@ -70,6 +83,7 @@ char PersonalBudget::selectOptionFromMainMenu() {
 }
 
 char PersonalBudget::selectOptionFromBudgetMenu() {
+
     char choice;
 
     system("clear");//Windows system("cls")

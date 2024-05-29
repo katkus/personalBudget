@@ -4,21 +4,17 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
 
-   PersonalBudget personalBudget ("users.xml", "incomes.xml", "expenses.xml");
+    PersonalBudget personalBudget ("users.xml", "incomes.xml", "expenses.xml");
 
-  char choice;
+    char choice;
 
-    while (true)
-    {
-        if (!personalBudget.isUserLoggedIn())
-        {
+    while (true) {
+        if (!personalBudget.isUserLoggedIn()) {
             choice = personalBudget.selectOptionFromMainMenu();
 
-            switch (choice)
-            {
+            switch (choice) {
             case '1':
                 personalBudget.registerUser();
                 break;
@@ -33,13 +29,10 @@ int main()
                 system("read"); // Windows system("pause")
                 break;
             }
-        }
-        else
-       {
+        } else {
             choice = personalBudget.selectOptionFromBudgetMenu();
 
-            switch (choice)
-            {
+            switch (choice) {
             case '1':
                 personalBudget.addIncome();
                 break;
@@ -64,6 +57,6 @@ int main()
             }
         }
     }
-        return 0;
+    return 0;
 
 }

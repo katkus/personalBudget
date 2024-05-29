@@ -10,6 +10,7 @@
 using namespace std;
 
 class PersonalBudget {
+
     UserManager userManager;
     BudgetManager *budgetManager;
     const string FILE_NAME_WITH_INCOMES;
@@ -20,6 +21,7 @@ public:
         : userManager(fileNameWithUsers), FILE_NAME_WITH_INCOMES(fileNameWithIncomes), FILE_NAME_WITH_EXPENSES(fileNameWithExpenses) {
         budgetManager = NULL;
     };
+
     ~PersonalBudget() {
         delete budgetManager;
         budgetManager = NULL;
@@ -37,5 +39,6 @@ public:
     bool isUserLoggedIn();
     char selectOptionFromMainMenu();
     char selectOptionFromBudgetMenu();
+
 };
 #endif // PERSONALBUDGET_

@@ -6,6 +6,7 @@
 using namespace std;
 
 class Earning {
+
     int earningId, userId;
     string item;
     string amount;
@@ -32,7 +33,6 @@ public:
     int getDate ();
     string getItem ();
     string getAmount ();
-
 
 };
 #endif // EARNING_H

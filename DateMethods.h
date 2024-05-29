@@ -15,6 +15,7 @@
 using namespace std;
 
 class DateMethods {
+
 public:
     string getTimeFromSystem();
     string getPreviousMonthFromDate(string currentDate);
